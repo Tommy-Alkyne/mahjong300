@@ -1,5 +1,7 @@
 # 何切300问 · 单题网页版
 
+**注意! 全部翻译由GPT6.1完成, 由诸多错误, 在不确定时请点击答案中的展开原文, 对照原文查看! 也欢迎提PR修改错误!**
+
 立直麻将「何切」训练器：一屏一道题，点牌作答，展开原书解析看答案，自动记录做题进度、对错与重点题。纯静态站点 + 一个单文件 Python 服务（进度接口），无构建、无数据库、无外部请求。
 
 | 桌面 | 手机 |
@@ -126,4 +128,3 @@ python3 make-icons.py --tile 5z --pad 0  # 白，铺满无留白
 - **题目内容**（`dist/images/` 的题面与解析图、`dist/reader/content.js` 里的译文与阅读资料）：版权归原书作者与出版方所有，**不在 MIT 范围内**。本仓库收录仅供个人学习、研究与本地自测，不得商用；权利人如不认可，提 issue 即刻移除。详见 `NOTICE.md`。
 - **牌面素材** `dist/images/tiles/*.png`：取自 [riichimahjongtrainer/riichimahjongtrainer](https://github.com/riichimahjongtrainer/riichimahjongtrainer)（commit `ed5a80b9`），上游未声明独立许可。
 
-本仓库约 53 MB，绝大部分是题面图；`progress.json` 是本机做题数据，已被 `.gitignore` 排除。要改代码的话，先读 `AGENTS.md`。
