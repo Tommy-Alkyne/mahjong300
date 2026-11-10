@@ -1,0 +1,14 @@
+# 做题进度（个人数据，运行期自动生成）
+progress.json
+progress.json.tmp
+*.json.tmp
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# 编辑器 / 系统垃圾
+.DS_Store
+Thumbs.db
+*.swp

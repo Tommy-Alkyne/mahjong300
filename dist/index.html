@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="何切300问中文对照练习，每页一道题，可展开答案与原书解析。">
+  <meta name="theme-color" content="#f5f3ee">
+  <title>何切300问</title>
+  <link rel="icon" href="icons/favicon.ico?v=2" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/icon-32.png?v=2">
+  <link rel="icon" type="image/png" sizes="48x48" href="icons/icon-48.png?v=2">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png?v=2">
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/icon-180.png?v=2">
+  <meta name="apple-mobile-web-app-title" content="何切300问">
+  <meta name="application-name" content="何切300问">
+  <link rel="stylesheet" href="reader/reader.css?v=15">
+  <script src="reader/content.js" defer></script>
+  <script src="reader/reader.js?v=11" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <button id="menu-toggle" type="button" aria-haspopup="dialog" aria-controls="reader-menu" aria-expanded="false">☰ 目录与资料</button>
+    <span class="progress" id="done-count" aria-live="polite" aria-label="已做题目数">已做 0/300</span>
+    <span class="counter" aria-label="当前题目"><b id="current-number">001</b> / 300</span>
+  </header>
+  <main class="stage" id="question-host" aria-label="当前题目"><noscript>请启用JavaScript以阅读单题版。完整Markdown版仍可直接阅读。</noscript></main>
+  <main class="bank-stage" id="bank-host" aria-label="题库：第1到300题" hidden></main>
+  <footer class="bottombar" aria-label="切换题目">
+    <button id="previous" type="button">← 上一题</button>
+    <button id="frontier" type="button" class="jump-latest">跳到最新</button>
+    <button id="bank" type="button" class="bank-toggle">题库</button>
+    <button id="next" type="button">下一题 →</button>
+  </footer>
+  <dialog id="reader-menu" class="drawer" aria-labelledby="menu-title">
+    <header class="drawer-head"><h2 id="menu-title">何切300问<small>目录、讲解与原书对照</small></h2><button type="button" id="menu-close" aria-label="关闭目录与资料">关闭 ×</button></header>
+    <div class="drawer-body">
+      <details class="panel" id="navigation-panel" open><summary>题目目录</summary>
+        <form class="jumpform" id="jumpform" novalidate><label for="jump">跳到第</label><input id="jump" type="number" min="1" max="300" step="1" inputmode="numeric" required><span>题</span><button type="submit">前往</button></form>
+        <p id="jump-error" class="form-error" role="status" hidden></p>
+        <label for="group">题号范围</label><select id="group" class="group-select"></select><nav id="toc" class="toc" aria-label="题号目录"></nav>
+      </details>
+      <details class="panel" id="current-source-panel"><summary>当前题目的原书对照</summary><div id="current-source"></div></details>
+      <details class="panel" id="extras-panel"><summary>讲解专栏与前后说明</summary><label for="extra-select">选择篇目</label><select id="extra-select" class="extra-select"></select><article id="extra-article" class="reading-article"></article></details>
+      <details class="panel" id="glossary-panel"><summary>中日术语表</summary><label for="glossary-search">查找术语</label><input type="search" id="glossary-search" class="glossary-search" placeholder="输入中文或日文"><table class="glossary"><thead><tr><th>日文</th><th>中文</th><th>说明</th></tr></thead><tbody id="glossary-body"></tbody></table><details class="source" id="glossary-source"><summary>原书术语页与牌形示例</summary><div></div></details></details>
+      <details class="panel" id="rules-panel"><summary>阅读约定与操作说明</summary><div id="reading-rules"></div></details>
+      <details class="panel" id="about-panel"><summary>书籍、译文与素材来源</summary><p>G・ウザク《麻雀 傑作「何切る」300選》，福地诚编，三才Books，2016年。全300题中文对照初稿；保留原书题面、日文解析与补充牌例。</p><p>电子牌图来自 <a href="https://github.com/riichimahjongtrainer/riichimahjongtrainer/tree/ed5a80b9a79a97d4e77aa7e679acaf16cc06c9b9/public/images" target="_blank" rel="noopener noreferrer">riichimahjongtrainer</a>，该仓库的随机练习题未替换本书题目。</p><p>正文、专栏和术语内容沿用已完成的中文全书版本。</p></details>
+    </div>
+  </dialog>
+</body>
+</html>

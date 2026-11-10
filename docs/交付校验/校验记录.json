@@ -1,0 +1,14 @@
+{
+  "question_count": 300,
+  "single_question_rendering": true,
+  "book_content_unchanged": true,
+  "markdown_files_unchanged": 12,
+  "source_images_identical": true,
+  "static_files": 1263,
+  "needs_backend": false,
+  "needs_build_step": false,
+  "relative_resource_paths": true,
+  "hash_routes": "#q001..#q300",
+  "browser_checks": "浏览器检查.json",
+  "not_deployed": true
+}
