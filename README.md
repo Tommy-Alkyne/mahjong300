@@ -4,7 +4,7 @@
 
 | 桌面 | 手机 |
 | --- | --- |
-| ![桌面预览](docs/交付校验/单题版_桌面预览.png) | ![手机预览](docs/交付校验/单题版_手机预览.png) |
+| ![桌面预览](preview-desktop.png) | ![手机预览](preview-mobile.png) |
 
 ## 功能
 
@@ -16,7 +16,7 @@
 - **目录分区**：001—090 / 091—180 / 181—240 / 241—300
 - **深链与键盘**：`#q001`…`#q300` 直连，刷新与前进后退保留题号；←/→ 切题
 - **移动端**：320px 起可用，底栏四键等分不溢出；`dist/icons/` 备 32–512 px 图标与 favicon
-- **完全离线**：无 CDN、无外部请求（交付校验记录里 `external_requests: []`）
+- **完全离线**：无 CDN、无外部请求，断网、`file://` 都能用
 
 ## 快速开始
 
@@ -72,12 +72,11 @@ unit 里用 `%h/mahjong300` 定位路径，克隆到别处就同步改那两行�
 ├── make-icons.py              # 由牌面素材生成站点图标（依赖 Pillow）
 ├── test_progress.py           # 端到端自检（geckodriver + 无头 Firefox）
 ├── mahjong300.service         # systemd 用户级 unit 模板
-├── docs/
-│   ├── 部署与阅读说明.md        # 原交付包说明（快照）
-│   ├── 开发记录.md              # 迭代与踩坑记录
-│   └── 交付校验/                # 文件清单、校验记录、来源记录、预览图
-├── LICENSE                    # MIT，仅覆盖代码
-└── NOTICE.md                  # 内容版权与来源声明
+├── preview-desktop.png        # 本 README 的两张预览图
+├── preview-mobile.png
+├── AGENTS.md                  # 给接手改代码的 agent 看的作业说明（人可跳过）
+├── NOTICE.md                  # 内容版权与来源声明
+└── LICENSE                    # MIT，仅覆盖代码
 ```
 
 ## 进度接口
@@ -109,7 +108,7 @@ python3 test_progress.py     # 依赖 geckodriver + 无头 Firefox，跑完打�
 
 脚本会另起一个 `serve.py`（独立端口 8499、独立数据文件 `/tmp/mj-test-progress.json`），不动线上 `progress.json`。检查项：三个独立浏览器会话（等同三台设备）的进度写入与取消、旧 localStorage 一次性并入、题库 300 项、目录分区 90/90/60/60、`#bank` 直链。
 
-服务侧另按 `docs/开发记录.md` 的手工项验证：首页/reader/图片 200、404、目录列表 403、局域网不可达、`kill -9` 后自愈。
+服务侧手工项：首页/reader/图片 200、404、目录列表 403、局域网不可达、`kill -9` 后 4 秒内自愈。
 
 ## 换图标
 
@@ -125,6 +124,6 @@ python3 make-icons.py --tile 5z --pad 0  # 白，铺满无留白
 
 - **代码**（`serve.py`、`make-icons.py`、`test_progress.py`、`dist/reader/reader.js`、`dist/reader/reader.css`、`dist/index.html`）：MIT，见 `LICENSE`。
 - **题目内容**（`dist/images/` 的题面与解析图、`dist/reader/content.js` 里的译文与阅读资料）：版权归原书作者与出版方所有，**不在 MIT 范围内**。本仓库收录仅供个人学习、研究与本地自测，不得商用；权利人如不认可，提 issue 即刻移除。详见 `NOTICE.md`。
-- **牌面素材** `dist/images/tiles/*.png`：取自 [riichimahjongtrainer/riichimahjongtrainer](https://github.com/riichimahjongtrainer/riichimahjongtrainer)（commit `ed5a80b`），见 `docs/交付校验/来源记录.json`。
+- **牌面素材** `dist/images/tiles/*.png`：取自 [riichimahjongtrainer/riichimahjongtrainer](https://github.com/riichimahjongtrainer/riichimahjongtrainer)（commit `ed5a80b9`），上游未声明独立许可。
 
-本仓库约 53 MB，绝大部分是题面图；`progress.json` 是本机做题数据，已被 `.gitignore` 排除。
+本仓库约 53 MB，绝大部分是题面图；`progress.json` 是本机做题数据，已被 `.gitignore` 排除。要改代码的话，先读 `AGENTS.md`。

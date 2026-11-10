@@ -28,7 +28,11 @@
 <https://github.com/riichimahjongtrainer/riichimahjongtrainer>
 （commit `ed5a80b9a79a97d4e77aa7e679acaf16cc06c9b9`）。上游仓库未声明独立许可，如需再分发请自行核实。
 
-## 4. 取证记录
+## 4. 取证锚点
 
-- 逐文件字节数与 sha256：`docs/交付校验/文件清单.json`
-- 原书 PDF 的 sha256、页数、页码映射与牌面素材 sha256：`docs/交付校验/来源记录.json`
+以下信息用于确认内容来源与完整性，可直接对照核验：
+
+- 原书 PDF：`sha256 cb8e6ab80eacd53715e5f485f1f54e29064420afd0dc69c6a878cc9038443b3e`，共 231 页
+- 书页图（`dist/images/`，共 1222 张）：`q###.webp` 题面 300、`a###.webp` 解析 300、`counts###.webp` 场况 300、`dora###.webp` 宝牌指示 300、`extra###.webp` 专栏图解 22
+- 每题与原书页码的对应关系写在 `dist/reader/content.js` 每道题的 `question_pdf` / `answer_pdf` / `question_printed` / `answer_printed` 字段里
+- 电子牌面：`dist/images/tiles/` 共 37 件 PNG（详见第 3 节）
